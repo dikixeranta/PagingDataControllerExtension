@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		9FF120151D9CE5A6001DED34 /* Build */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 9FF120161D9CE5A6001DED34 /* Build configuration list for PBXAggregateTarget "Build" */;
-			buildPhases = (
-				9FF120191D9CE5AC001DED34 /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = Build;
-			productName = Build;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		0F26D4B4A1DB8E9B94F6080ACD85AEBC /* ESRefreshAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126505F85B8E06F1ED1432505DD11B9C /* ESRefreshAnimator.swift */; };
 		13EFCAC734753B728CC62F5D01E31A07 /* UIViewController+PagingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0E7AB36A30A47120FA141A109EA3BE /* UIViewController+PagingData.swift */; };
@@ -35,8 +21,6 @@
 		6FDE2862AB33DE90FF55024491E0BB7D /* Pods-PagingDataControllerExtension_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5595B3FEBBF38CEA012EC4112E9BC0 /* Pods-PagingDataControllerExtension_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F58E66533A29D5DD2B1BA4A46AD0BD6 /* PagingDataControllerExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD2C451CDF95B4AD81B6A952E614EE2 /* PagingDataControllerExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		821CFAA396F3CF500B42F13A9B7A5103 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92AC415ECD940B251257DE1994F6EF5 /* Foundation.framework */; };
-		9FF1201A1D9CE5EF001DED34 /* PagingDataController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53EC853A0283445DF9ECF8DC550DAB /* PagingDataController.framework */; };
-		9FF1201B1D9CE5F4001DED34 /* SiFUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E21DD5189749FD0BB847498C3BBB81E /* SiFUtilities.framework */; };
 		A30E05CC9B089E1CDEE364D68E934197 /* ESRefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF341A2C9FFE5E1FCEBA8569912D0039 /* ESRefreshComponent.swift */; };
 		B918A271FFC8DDA759B596F52118F9A1 /* ESRefreshFooterAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F51F9B436D950D5C49648A6A35550F08 /* ESRefreshFooterAnimator.swift */; };
 		BBED44D7CFE30BA64C17C1C800CFF9EF /* ESPullToRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7085AA6EDD019588D2189EE7A9A8E2A4 /* ESPullToRefresh.framework */; };
@@ -129,8 +113,6 @@
 			files = (
 				BBED44D7CFE30BA64C17C1C800CFF9EF /* ESPullToRefresh.framework in Frameworks */,
 				275A55861EF87B7E467E11F65578E1B5 /* Foundation.framework in Frameworks */,
-				9FF1201A1D9CE5EF001DED34 /* PagingDataController.framework in Frameworks */,
-				9FF1201B1D9CE5F4001DED34 /* SiFUtilities.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,12 +464,6 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
-				TargetAttributes = {
-					9FF120151D9CE5A6001DED34 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -505,26 +481,9 @@
 				1F519B3548A66C465B4DDD8EB12DA030 /* PagingDataControllerExtension */,
 				0E94982B7DC5A86D5F0DDC79589CC968 /* Pods-PagingDataControllerExtension_Example */,
 				42C707D310F469134F5911FCB3D0AEFF /* Pods-PagingDataControllerExtension_Tests */,
-				9FF120151D9CE5A6001DED34 /* Build */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		9FF120191D9CE5AC001DED34 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\nCUSTOM_NAME='PagingDataControllerExtension'\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${CUSTOM_NAME}\" -configuration ${CONFIGURATION} OTHER_CFLAGS=\"-fembed-bitcode\" ONLY_ACTIVE_ARCH=NO BUILD_ROOT=\"${BUILD_ROOT}\" BUILD_DIR=\"${BUILD_DIR}\" -sdk iphoneos clean build\nxcodebuild -target \"${CUSTOM_NAME}\" -configuration ${CONFIGURATION} OTHER_CFLAGS=\"-fembed-bitcode\" ONLY_ACTIVE_ARCH=NO BUILD_ROOT=\"${BUILD_ROOT}\" BUILD_DIR=\"${BUILD_DIR}\" -sdk iphonesimulator clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${CUSTOM_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${CUSTOM_NAME}.framework/Modules/${CUSTOM_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${CUSTOM_NAME}.framework/Modules/${CUSTOM_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${CUSTOM_NAME}.framework/${CUSTOM_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${CUSTOM_NAME}.framework/${CUSTOM_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${CUSTOM_NAME}.framework/${CUSTOM_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${CUSTOM_NAME}.framework\" \"${PROJECT_DIR}\"\n\n# Step 6. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		145A80BE106127E0C678906D6FF500E4 /* Sources */ = {
@@ -781,20 +740,6 @@
 			};
 			name = Debug;
 		};
-		9FF120171D9CE5A6001DED34 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		9FF120181D9CE5A6001DED34 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		B2320CAB84888023C039BE3BC3BC2D7D /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D90550B4CFE5A3DB221DED021F4AF23 /* Pods-PagingDataControllerExtension_Tests.release.xcconfig */;
@@ -992,14 +937,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		9FF120161D9CE5A6001DED34 /* Build configuration list for PBXAggregateTarget "Build" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9FF120171D9CE5A6001DED34 /* Debug */,
-				9FF120181D9CE5A6001DED34 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 		DBAD398E9245B747B43AA3E8D5F8C2A8 /* Build configuration list for PBXNativeTarget "ESPullToRefresh" */ = {
 			isa = XCConfigurationList;

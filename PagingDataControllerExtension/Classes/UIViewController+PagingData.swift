@@ -82,7 +82,7 @@ extension UIViewController: PageDataSourceDelegate {
     // MARK: - Page Data Delegate
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     
-    public func pageDataSourceDidChanged(hasMoreFlag: Bool, changed: Bool) {
+    open func pageDataSourceDidChanged(hasMoreFlag: Bool, changed: Bool) {
         self.checkInfiniteView(hasMoreFlag)
     }
     
@@ -102,11 +102,11 @@ extension UIViewController: PageDataSourceDelegate {
         }
     }
     
-    func startLoading() {
+    open func startLoading() {
         showLoading()
     }
     
-    func stopLoading() {
+    open func stopLoading() {
         hideLoading()
     }
 }
