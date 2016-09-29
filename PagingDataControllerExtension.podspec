@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PagingDataControllerExtension'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'This is Extensions help you to implement PagingDataController'
 
 # This description is used to generate tags and improve search results.
@@ -41,6 +41,6 @@ Install PagingDataControllerExtension and setupScrollViewForPaging -> All done.
 
 s.dependency 'PagingDataController'
 s.dependency 'SiFUtilities'
-s.dependency 'ESPullToRefresh'
+s.dependency 'SVPullToRefresh'
 
 end

@@ -8,7 +8,7 @@
 
 import Foundation
 import SiFUtilities
-import ESPullToRefresh
+import SVPullToRefresh
 import PagingDataController
 
 public typealias PullHandler = ((() -> Swift.Void)? ) -> Swift.Void
@@ -58,22 +58,22 @@ extension UIViewController: PageDataSourceDelegate {
     }
     
     public func setupPullToRefreshView(pullHandler: @escaping PullHandler) {
-        _ = pagingScrollView.es_addPullToRefresh{ [weak self] in
+        pagingScrollView.addPullToRefresh { [weak self] in
             pullHandler({ [weak self] in
                 self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: {
                     [weak self] in
-                    self?.pagingScrollView.es_stopPullToRefresh(completion: true)
+                    self?.pagingScrollView.pullToRefreshView.stopAnimating()
                     })
                 })
         }
     }
     
     public func setupInfiniteScrollingView(pullHanlder: @escaping PullHandler) {
-        _ = pagingScrollView.es_addInfiniteScrolling { [weak self] in
+        pagingScrollView.addInfiniteScrolling { [weak self] in
             pullHanlder({ [weak self] in
                 self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: {
                     [weak self] in
-                    self?.pagingScrollView.es_stopLoadingMore()
+                    self?.pagingScrollView.infiniteScrollingView.stopAnimating()
                     })
                 })
         }
@@ -83,23 +83,20 @@ extension UIViewController: PageDataSourceDelegate {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     open func pageDataSourceDidChanged(hasMoreFlag: Bool, changed: Bool) {
-        self.checkInfiniteView(hasMoreFlag)
-    }
-    
-    // MARK: Functions
-    open func checkInfiniteView(_ hasMore: Bool) {
-        // call function with delay to fix mess animations
+        
+        guard changed else {
+            return
+        }
         let delayTime = DispatchTime.now() + Double(Int64(0.25 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline: delayTime) { [weak self] in
             
-            if (hasMore == false) {
-                self?.pagingScrollView.es_footer?.noMoreData = true
-                self?.pagingScrollView.es_footer?.isHidden = true
+            if hasMoreFlag == false {
+                self?.pagingScrollView.showsInfiniteScrolling = false
             } else {
-                self?.pagingScrollView.es_footer?.noMoreData = false
-                self?.pagingScrollView.es_footer?.isHidden = false
+                self?.pagingScrollView.showsInfiniteScrolling = true
             }
         }
+        
     }
     
     open func startLoading() {
@@ -118,19 +115,19 @@ extension PagingControllerProtocol where Self: UIViewController {
         dataSource.settings = PageDataSettings(pageSize: provider.pageSize)
         dataSource.delegate = self
         
-        _ = pagingScrollView.es_addPullToRefresh { [weak self] in
-            self?.loadFirstPageWithCompletion({ [weak self] in
+        pagingScrollView.addPullToRefresh { [weak self] in
+            self?.loadFirstPageWithCompletion ({ [weak self] in
                 self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: {
                     [weak self] in
-                    self?.pagingScrollView.es_stopPullToRefresh(completion: true)
+                    self?.pagingScrollView.pullToRefreshView.stopAnimating()
                     })
                 })
         }
-        _ = pagingScrollView.es_addInfiniteScrolling { [weak self] in
-            self?.loadNextPageWithCompletion({ [weak self] in
+        pagingScrollView.addInfiniteScrolling { [weak self] in
+            self?.loadNextPageWithCompletion ({ [weak self] in
                 self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: {
                     [weak self] in
-                    self?.pagingScrollView.es_stopLoadingMore()
+                    self?.pagingScrollView.infiniteScrollingView.stopAnimating()
                     })
                 })
         }

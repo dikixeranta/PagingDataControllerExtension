@@ -1,9 +1,9 @@
 {
   "name": "PagingDataControllerExtension",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "This is Extensions help you to implement PagingDataController",
   "description": "Install PagingDataControllerExtension and setupScrollViewForPaging -> All done.",
-  "homepage": "https://github.com/congncif/PagingDataControllerExtension",
+  "homepage": "https://bitbucket.org/ifsolution/pagingdatacontrollerextensions",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,8 +12,8 @@
     "NGUYEN CHI CONG": "congnc.if@gmail.com"
   },
   "source": {
-    "git": "https://github.com/congncif/PagingDataControllerExtension.git",
-    "tag": "0.1.0"
+    "git": "https://bitbucket.org/ifsolution/pagingdatacontrollerextensions.git",
+    "tag": "0.1.1"
   },
   "social_media_url": "https://twitter.com/congncif",
   "platforms": {
@@ -27,7 +27,7 @@
     "SiFUtilities": [
 
     ],
-    "ESPullToRefresh": [
+    "SVPullToRefresh": [
 
     ]
   }
