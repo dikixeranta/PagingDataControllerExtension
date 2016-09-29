@@ -35,7 +35,6 @@
 		6FDE2862AB33DE90FF55024491E0BB7D /* Pods-PagingDataControllerExtension_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E5595B3FEBBF38CEA012EC4112E9BC0 /* Pods-PagingDataControllerExtension_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7F58E66533A29D5DD2B1BA4A46AD0BD6 /* PagingDataControllerExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DD2C451CDF95B4AD81B6A952E614EE2 /* PagingDataControllerExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		821CFAA396F3CF500B42F13A9B7A5103 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E92AC415ECD940B251257DE1994F6EF5 /* Foundation.framework */; };
-		92AE70FF85D4844F10E7ACA1109B617F /* PagingDataController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D2A7E3C5642A3D569DCAD545108AB /* PagingDataController+Extensions.swift */; };
 		9FF1201A1D9CE5EF001DED34 /* PagingDataController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA53EC853A0283445DF9ECF8DC550DAB /* PagingDataController.framework */; };
 		9FF1201B1D9CE5F4001DED34 /* SiFUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E21DD5189749FD0BB847498C3BBB81E /* SiFUtilities.framework */; };
 		A30E05CC9B089E1CDEE364D68E934197 /* ESRefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF341A2C9FFE5E1FCEBA8569912D0039 /* ESRefreshComponent.swift */; };
@@ -84,7 +83,6 @@
 		36D70FCA416FD48F85822E9046BBAC3B /* ESRefreshHeaderAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ESRefreshHeaderAnimator.swift; path = Sources/Animator/ESRefreshHeaderAnimator.swift; sourceTree = "<group>"; };
 		4152ECE69578CDBEF173578F5C4FE088 /* ESPullToRefresh.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ESPullToRefresh.xcconfig; sourceTree = "<group>"; };
 		46438426D3EF4E8D4A6F67B1B159AF6D /* PagingDataControllerExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PagingDataControllerExtension.modulemap; sourceTree = "<group>"; };
-		4A3D2A7E3C5642A3D569DCAD545108AB /* PagingDataController+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "PagingDataController+Extensions.swift"; sourceTree = "<group>"; };
 		4AC608BD7C4ACA2B5C27B1EBBE4D2CE5 /* ESPullToRefresh-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ESPullToRefresh-dummy.m"; sourceTree = "<group>"; };
 		4E3B437B91DAC5E4A083B220188E0C57 /* ESPullToRefresh+Manager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ESPullToRefresh+Manager.swift"; path = "Sources/ESPullToRefresh+Manager.swift"; sourceTree = "<group>"; };
 		4F66F25241F3DA2FAD3BDF3C325F8131 /* Pods-PagingDataControllerExtension_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PagingDataControllerExtension_Example-resources.sh"; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 		008536A1F595D9A0CB3E97C4553DE865 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4A3D2A7E3C5642A3D569DCAD545108AB /* PagingDataController+Extensions.swift */,
 				0E0E7AB36A30A47120FA141A109EA3BE /* UIViewController+PagingData.swift */,
 			);
 			path = Classes;
@@ -565,7 +562,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92AE70FF85D4844F10E7ACA1109B617F /* PagingDataController+Extensions.swift in Sources */,
 				4261624A142B4A661EA48A2CC6CABE53 /* PagingDataControllerExtension-dummy.m in Sources */,
 				13EFCAC734753B728CC62F5D01E31A07 /* UIViewController+PagingData.swift in Sources */,
 			);
