@@ -1,0 +1,6 @@
+framework module Pods_PagingDataControllerExtension_Tests {
+  umbrella header "Pods-PagingDataControllerExtension_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

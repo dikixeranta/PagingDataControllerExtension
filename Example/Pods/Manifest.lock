@@ -1,0 +1,25 @@
+PODS:
+  - ESPullToRefresh (2.1)
+  - PagingDataController (1.1.3)
+  - PagingDataControllerExtension (0.1.0):
+    - ESPullToRefresh
+    - PagingDataController
+    - SiFUtilities
+  - SiFUtilities (1.0.2)
+
+DEPENDENCIES:
+  - PagingDataControllerExtension (from `../`)
+
+EXTERNAL SOURCES:
+  PagingDataControllerExtension:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ESPullToRefresh: bb9e156053af3f7f8829c125b27ce00066372e30
+  PagingDataController: 7ff85e39570a98999e32f256215b2efd613d5f45
+  PagingDataControllerExtension: 270c6f23a2c62acc787d0a71f8e403cd9b353d33
+  SiFUtilities: 9dabaafeb1ae249e2560b4f7e8c8348c2a23557e
+
+PODFILE CHECKSUM: a5363879339ac54c7fcbdda0502dc93d04c2db55
+
+COCOAPODS: 1.1.0.rc.2

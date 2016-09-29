@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PagingDataControllerExtension_Example' do
+  pod 'PagingDataControllerExtension', :path => '../'
+
+  target 'PagingDataControllerExtension_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
