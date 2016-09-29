@@ -25,7 +25,7 @@ Install PagingDataControllerExtension and setupScrollViewForPaging -> All done.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'NGUYEN CHI CONG' => 'congnc.if@gmail.com' }
-  s.source           = { :git => ' https://congncif@bitbucket.org/ifsolution/pagingdatacontrollerextensions.git', :tag => s.version.to_s }
+  s.source           = { :git => ' https://bitbucket.org/ifsolution/pagingdatacontrollerextensions.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/congncif'
 
   s.ios.deployment_target = '8.0'
