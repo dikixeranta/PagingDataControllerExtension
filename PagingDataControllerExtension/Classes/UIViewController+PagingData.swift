@@ -13,27 +13,6 @@ import PagingDataController
 
 public typealias PullHandler = ((() -> Swift.Void)? ) -> Swift.Void
 
-/********************************************************************************
- Copy below method to your View Controller
- ********************************************************************************
- 
- override func viewDidFinishLayout() {
- super.viewDidFinishLayout()
- 
- dataSource.settings = PageDataSettings(pageSize: provider.pageSize)
- dataSource.delegate = self
- 
- setupScrollViewForPaging(pullDownHandler: loadFirstPageWithCompletion, pullUpHandler: loadNextPageWithCompletion)
- 
- showLoading()
- loadFirstPageWithCompletion { [weak self] in
- self?.pagingScrollView.reloadContent()
- self?.hideLoading()
- }
- }
- 
- *********************************************************************************/
-
 extension UIViewController: PageDataSourceDelegate {
     
     open var instantReloadContent: Bool {
@@ -133,11 +112,15 @@ extension PagingControllerProtocol where Self: UIViewController {
         }
         
         if loadFirstPage {
-            startLoading()
-            loadFirstPageWithCompletion({ [weak self] in
-                self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: self?.stopLoading)
-                })
+            loadDataAtFirst()
         }
+    }
+    
+    public func loadDataAtFirst() {
+        startLoading()
+        loadFirstPageWithCompletion({ [weak self] in
+            self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: self?.stopLoading)
+            })
     }
 }
 
