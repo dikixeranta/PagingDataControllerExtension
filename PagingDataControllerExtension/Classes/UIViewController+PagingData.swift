@@ -1,6 +1,6 @@
 //
-//  PagingInterfaceProtocol+UI.swift
-//  Clip2
+//  UIViewController+PagingData.swift
+//  PagingDataControllerExtension
 //
 //  Created by NGUYEN CHI CONG on 8/11/16.
 //  Copyright © 2016 FOLY. All rights reserved.
@@ -39,22 +39,22 @@ extension UIViewController: PageDataSourceDelegate {
     public func setupPullToRefreshView(pullHandler: @escaping PullHandler) {
         pagingScrollView.addPullToRefresh { [weak self] in
             pullHandler({ [weak self] in
-                self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: {
-                    [weak self] in
-                    self?.pagingScrollView.pullToRefreshView.stopAnimating()
-                    })
+                self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!,
+                                                     end: { [weak self] in
+                                                        self?.pagingScrollView.pullToRefreshView.stopAnimating()
                 })
+            })
         }
     }
     
     public func setupInfiniteScrollingView(pullHanlder: @escaping PullHandler) {
         pagingScrollView.addInfiniteScrolling { [weak self] in
             pullHanlder({ [weak self] in
-                self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: {
-                    [weak self] in
-                    self?.pagingScrollView.infiniteScrollingView.stopAnimating()
-                    })
+                self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!,
+                                                     end: { [weak self] in
+                                                        self?.pagingScrollView.infiniteScrollingView.stopAnimating()
                 })
+            })
         }
     }
     
@@ -90,37 +90,36 @@ extension UIViewController: PageDataSourceDelegate {
 extension PagingControllerProtocol where Self: UIViewController {
     
     public func setupForPaging(loadFirstPage: Bool = true) {
-        
         dataSource.settings = PageDataSettings(pageSize: provider.pageSize)
         dataSource.delegate = self
         
         pagingScrollView.addPullToRefresh { [weak self] in
             self?.loadFirstPageWithCompletion ({ [weak self] in
-                self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: {
-                    [weak self] in
-                    self?.pagingScrollView.pullToRefreshView.stopAnimating()
-                    })
+                self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!,
+                                                     end: { [weak self] in
+                                                        self?.pagingScrollView.pullToRefreshView.stopAnimating()
                 })
+            })
         }
         pagingScrollView.addInfiniteScrolling { [weak self] in
             self?.loadNextPageWithCompletion ({ [weak self] in
-                self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: {
-                    [weak self] in
-                    self?.pagingScrollView.infiniteScrollingView.stopAnimating()
-                    })
+                self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!,
+                                                     end: { [weak self] in
+                                                        self?.pagingScrollView.infiniteScrollingView.stopAnimating()
                 })
+            })
         }
         
         if loadFirstPage {
-            loadDataAtFirst()
+            loadDataFirstPage()
         }
     }
     
-    public func loadDataAtFirst() {
+    public func loadDataFirstPage() {
         startLoading()
         loadFirstPageWithCompletion({ [weak self] in
             self?.pagingScrollView.reloadContent(instantReloadContent: (self?.instantReloadContent)!, end: self?.stopLoading)
-            })
+        })
     }
 }
 

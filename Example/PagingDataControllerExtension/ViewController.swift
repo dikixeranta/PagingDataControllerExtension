@@ -11,7 +11,7 @@ import PagingDataController
 import PagingDataControllerExtension
 
 struct Provider: PagingProviderProtocol {
-    func loadData(_ parameters: String?, page: Int, completion: (([String], Error?) -> ())?) {}
+    func loadData(parameters: String?, page: Int, completion: (([String], Error?) -> ())?) {}
 }
 
 class ViewController: UIViewController, PagingControllerProtocol {

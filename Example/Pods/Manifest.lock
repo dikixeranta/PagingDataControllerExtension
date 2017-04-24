@@ -1,10 +1,10 @@
 PODS:
-  - PagingDataController (1.1.4)
-  - PagingDataControllerExtension (0.1.2):
+  - PagingDataController (1.2.0)
+  - PagingDataControllerExtension (0.1.4):
     - PagingDataController
     - SiFUtilities
     - SVPullToRefresh
-  - SiFUtilities (1.0.3)
+  - SiFUtilities (2.0.2)
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
@@ -15,11 +15,11 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  PagingDataController: 109cd9868013cdc4bc41a299c1fa0bb37b8858dd
-  PagingDataControllerExtension: 2d120629267d5323f1121c34c9da3e1240b22d3b
-  SiFUtilities: 171ed20f7c28db36c76fa45816d9d9ef8d6fc1bf
+  PagingDataController: 94cbfb53abc49734f61ffad5b8b41e823c7b24b4
+  PagingDataControllerExtension: a6c6bf9dbc69c7498f0adb1525d89eb56d91bd31
+  SiFUtilities: 132ced9003b9498698b86fd77c5249113482b497
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
 
 PODFILE CHECKSUM: 67b0805f2e7c53c216d1c1c0b43031b2764c715e
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.2.1

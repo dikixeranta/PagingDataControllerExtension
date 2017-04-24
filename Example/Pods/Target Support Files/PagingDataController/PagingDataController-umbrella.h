@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double PagingDataControllerExtensionVersionNumber;
-FOUNDATION_EXPORT const unsigned char PagingDataControllerExtensionVersionString[];
+FOUNDATION_EXPORT double PagingDataControllerVersionNumber;
+FOUNDATION_EXPORT const unsigned char PagingDataControllerVersionString[];
 
